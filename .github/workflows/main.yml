@@ -5,9 +5,9 @@ on:
 jobs:
   limiter:
     runs-on: ubuntu-latest
-      steps:
-        - name: Do the curl
-        run: |
+    steps:
+    - name: Do the curl
+      run: |
           curl --request PUT \
           --url https://api.github.com/repos/${{ github.repository }}/interaction-limits \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
