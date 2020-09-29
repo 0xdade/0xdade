@@ -8,6 +8,7 @@ jobs:
     steps:
     - name: Do the curl
       run: |
+          echo "curling" && \
           curl --request PUT \
           --url https://api.github.com/repos/${{ github.repository }}/interaction-limits \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
@@ -15,5 +16,6 @@ jobs:
           --header 'Accept: application/vnd.github.sombra-preview' \
           --data '{
             "limit": "collaborators_only"
-          }'
+          }' && \
+          echo "curled"
         
